@@ -27,6 +27,7 @@ fig_promo_hist = px.bar(fig_promo_hist, x="Promoción", y="Count", color="Promoc
 
 st.set_page_config(page_title="Dashboard", layout="wide")
 st.title("Call Center Dashboard")
+st.subheader("Dashboard created by Angel Nelson")
 st.markdown("---")
 st.title("Historical analysis 2023-2025")
 df_final_historico = relevant_info_df.copy()
