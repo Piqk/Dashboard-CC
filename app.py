@@ -52,7 +52,7 @@ if filtro_agente:
 promo_counts_todos = df_final_historico.groupby("Agente").size().reset_index(name='Count')
 promo_counts_hotel = df_final_historico.groupby("Hotel").size().reset_index(name='Count')
 
-fig_agente = px.pie(promo_counts_todos, values="Count", names="Agente", title="promos generadas por agente")
+fig_agente = px.pie(promo_counts_todos, values="Count", names="Agente", title="Promos by agent")
 fig_hotel = px.bar(promo_counts_hotel, x=promo_counts_hotel["Hotel"], y=promo_counts_hotel["Count"], color="Count")
 
 fig_promo_hist = df.groupby("Promoción").size().reset_index(name='Count')
@@ -156,7 +156,7 @@ fig_promo_semal = df_filtered_semanal.groupby("Promoción").size().reset_index(n
 fig_promo_semanal = px.bar(fig_promo_semal, x="Promoción", y="Count", color="Promoción")
 
 fig_agente_semal = df_filtered_semanal.groupby("Agente").size().reset_index(name='Count')
-fig_agente_semanal = px.pie(fig_agente_semal, values="Count", names="Agente", title="Promos por agente", hole=0.5)
+fig_agente_semanal = px.pie(fig_agente_semal, values="Count", names="Agente", title="Promos by agent", hole=0.5)
 
 if active_week_dates:
     start_date, end_date = active_week_dates
@@ -381,12 +381,12 @@ for col_index in range(0, 9):
 g4col1, g4col2 = st.columns(2)
 
 with g4col1:
-    st.subheader("IB Hook sin filtro")
+    st.subheader("Unfiltered IB results")
     st.dataframe(df4, width="stretch")
 
 
 with g4col2:
-    st.subheader("IB Hook con filtro")
+    st.subheader("Filtered IB results")
     st.dataframe(df5, width="stretch")
 #Dashboard mensual----------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -422,7 +422,7 @@ if filtro_agente:
 fig_promo_mensual = df_final.groupby("Promoción").size().reset_index(name='Count')
 fig_promo_mensual = px.bar(fig_promo_mensual, x="Promoción", y="Count", color="Promoción")
 fig_agente_mensual = df_final.groupby("Agente").size().reset_index(name='Count')
-fig_agente_mensual = px.pie(fig_agente_mensual, values="Count", names="Agente", title="Promos por agente", hole=0.5)
+fig_agente_mensual = px.pie(fig_agente_mensual, values="Count", names="Agente", title="Promos by agent", hole=0.5)
 
 col1, = st.columns(1)
 with col1:
@@ -526,5 +526,5 @@ for col in Columnas_quitar_decmal:
 col1, = st.columns(1)
 
 with col1:
-    st.subheader(f"Reporte llamadas de {display_value}")
+    st.subheader(f"Time report from {display_value}")
     st.dataframe(df_avaya)
