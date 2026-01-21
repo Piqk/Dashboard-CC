@@ -284,14 +284,14 @@ hook_percentage = (df4.iloc[8,2]/df4.iloc[8,1])
 df4.loc[df4.index[-1], "% HOOK"] = hook_percentage
 
 
-df4.loc[df4['Agente'] == 'EVELYN', 'Agente'] = 'Evelyn Hernandez'
-df4.loc[df4['Agente'] == 'LOURDES', 'Agente'] = 'Lourdes Laurel'
-df4.loc[df4['Agente'] == 'FERNANDA', 'Agente'] = "Fernanda Jaime"
-df4.loc[df4['Agente'] == 'KARLA', 'Agente'] = 'Karla Garcia'
-df4.loc[df4['Agente'] == 'KATHIA O', 'Agente'] = 'Kathia Orozco'
-df4.loc[df4['Agente'] == 'KATIA', 'Agente'] = 'Katia Angulo'
-df4.loc[df4['Agente'] == 'NADINE', 'Agente'] = 'Nadine Nieves'
-df4.loc[df4['Agente'] == 'ROSARIO', 'Agente'] = 'Rosario Osuna'
+df4.loc[df4['Agente'] == 'EVELYN', 'Agente'] = 'Evelyn'
+df4.loc[df4['Agente'] == 'LOURDES', 'Agente'] = 'Lourdes'
+df4.loc[df4['Agente'] == 'FERNANDA', 'Agente'] = "Fernanda"
+df4.loc[df4['Agente'] == 'KARLA', 'Agente'] = 'Karla'
+df4.loc[df4['Agente'] == 'KATHIA O', 'Agente'] = 'Kathia'
+df4.loc[df4['Agente'] == 'KATIA', 'Agente'] = 'Katia'
+df4.loc[df4['Agente'] == 'NADINE', 'Agente'] = 'Nadine'
+df4.loc[df4['Agente'] == 'ROSARIO', 'Agente'] = 'Rosario'
 
 #Con filtros adicionales
 
@@ -348,14 +348,14 @@ Bono_dias = [1,2,3,4]
 df5["Dias libres"] = np.select(condiciones, Bono_dias, default=0)
 df5.loc[df5.index[-1], "Dias libres"] = None
 
-df5.loc[df5['Agente'] == 'EVELYN', 'Agente'] = 'Evelyn Hernandez'
-df5.loc[df5['Agente'] == 'LOURDES', 'Agente'] = 'Lourdes Laurel'
-df5.loc[df5['Agente'] == 'FERNANDA', 'Agente'] = "Fernanda Jaime"
-df5.loc[df5['Agente'] == 'KARLA', 'Agente'] = 'Karla Garcia'
-df5.loc[df5['Agente'] == 'KATHIA O', 'Agente'] = 'Kathia Orozco'
-df5.loc[df5['Agente'] == 'KATIA', 'Agente'] = 'Katia Angulo'
-df5.loc[df5['Agente'] == 'NADINE', 'Agente'] = 'Nadine Nieves'
-df5.loc[df5['Agente'] == 'ROSARIO', 'Agente'] = 'Rosario Osuna'
+df5.loc[df5['Agente'] == 'EVELYN', 'Agente'] = 'Evelyn'
+df5.loc[df5['Agente'] == 'LOURDES', 'Agente'] = 'Lourdes'
+df5.loc[df5['Agente'] == 'FERNANDA', 'Agente'] = "Fernanda"
+df5.loc[df5['Agente'] == 'KARLA', 'Agente'] = 'Karla'
+df5.loc[df5['Agente'] == 'KATHIA O', 'Agente'] = 'Kathia'
+df5.loc[df5['Agente'] == 'KATIA', 'Agente'] = 'Katia'
+df5.loc[df5['Agente'] == 'NADINE', 'Agente'] = 'Nadine'
+df5.loc[df5['Agente'] == 'ROSARIO', 'Agente'] = 'Rosario'
 
 for col_index in range(0, 9):
     valor = df4.iloc[col_index, 3]
