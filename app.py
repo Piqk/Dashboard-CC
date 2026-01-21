@@ -26,19 +26,19 @@ fig_promo_hist = px.bar(fig_promo_hist, x="Promoción", y="Count", color="Promoc
 
 
 st.set_page_config(page_title="Dashboard", layout="wide")
-st.title("Dashboard General Call Center")
+st.title("Call Center Dashboard")
 st.markdown("---")
-st.title("Historico")
+st.title("Historical analysis 2023-2025")
 df_final_historico = relevant_info_df.copy()
 
 filtro_promo = st.sidebar.multiselect(
-    "Filtro por promoción Historica",
+    "Filter by promotion (Historical)",
     options=relevant_info_df['Promoción'].unique(),
     default=[]
 )
 
 filtro_agente = st.sidebar.multiselect(
-    "Filtro por agente Historico",
+    "Filter by agent (Historical)",
     options=relevant_info_df['Agente'].unique(),
     default=[]
 )
@@ -64,7 +64,7 @@ with col1:
     st.metric(label="Total promos",
               value=df["Agente"].shape[0])
 with col2:
-    st.metric(label="Total promos por agentes presentes al 01/12/2025",
+    st.metric(label="Total promos by agent",
               value=df_final_historico["Agente"].shape[0])
 
 g2col1, g2col2 = st.columns(2)
@@ -76,7 +76,7 @@ with g2col2:
     st.plotly_chart(fig_agente, width="stretch")
 
 #DASHBOARD DEL REPORTE SEMANAL ------------------------------------------------------------------------------------------------------------------------------
-st.title("Reporte Semanal")
+st.title("Weekly Progress")
 st.markdown("---")
 
 df_semanal = pd.read_excel("Mensual promo.xlsx", sheet_name=0)
@@ -87,13 +87,13 @@ df_semanal["Dia Ingreso"] = pd.to_datetime(df_semanal["Dia Ingreso"], format="%d
 df_final_semanal = df_semanal.copy()
 
 filtro_promo = st.sidebar.multiselect(
-    "Filtro por promoción Semanal",
+    "Filter by promotion (Weekly)",
     options=df_semanal['Promoción'].unique(),
     default=[]
 )
 
 filtro_agente = st.sidebar.multiselect(
-    "Filtro por agente Semanal",
+    "Filter by agent (Weekly)",
     options=df_semanal['Agente'].unique(),
     default=[]
 )
@@ -166,12 +166,12 @@ if active_week_dates:
 
 
 if active_week_dates:
-    st.info(f"Semana Activa: {display_value}")
+    st.info(f"Active Week: {display_value}")
 
 g3col1,= st.columns(1)
 
 with g3col1:
-    st.metric(label="Total promos Semanal",
+    st.metric(label="Total promos weekly",
               value=df_filtered_semanal.shape[0])
 
 g2col1, g2col2 = st.columns(2)
@@ -302,7 +302,7 @@ df5 = pd.DataFrame({
 col1, = st.columns(1)
 
 with col1:
-    st.subheader(f"Booking Activity de la semana {start_date} - {end_date}")
+    st.subheader(f"Booking Activity from {start_date} to {end_date}")
     st.dataframe(filtered_wto_cxl)
 
 df_wto_discount = filtered_wto_cxl[~filtered_wto_cxl["Disc Applied"].str.contains("35%", na=False)].copy()
@@ -390,11 +390,11 @@ with g4col2:
     st.dataframe(df5, width="stretch")
 #Dashboard mensual----------------------------------------------------------------------------------------------------------------------------------------------------------
 
-st.title("Avance Mensual")
+st.title("Monthly Progress")
 st.markdown("---")
 mes_actual = "November"
 
-st.info(f"Mes actual: {mes_actual}")
+st.info(f"Current month: {mes_actual}")
 
 df_mensual  = pd.read_excel("Mensual promo.xlsx", sheet_name=0)
 df_mensual = df_mensual[df_mensual["Observacion"] != "REAGENDADA"]
@@ -402,13 +402,13 @@ df_mensual = df_mensual[df_mensual["Observacion"] != "REAGENDADA"]
 df_final = df_mensual.copy()
 
 filtro_promo = st.sidebar.multiselect(
-    "Filtro por promoción mensual",
+    "Filter by promotion (Monthly)",
     options=df_mensual['Promoción'].unique(),
     default=[]
 )
 
 filtro_agente = st.sidebar.multiselect(
-    "Filtro por agente mensual",
+    "Filter by agent (Monthly)",
     options=df_mensual['Agente'].unique(),
     default=[]
 )
@@ -426,7 +426,7 @@ fig_agente_mensual = px.pie(fig_agente_mensual, values="Count", names="Agente", 
 
 col1, = st.columns(1)
 with col1:
-    st.metric(label="Total promos mensual",
+    st.metric(label="Total monthly promos",
               value=df_final.shape[0])
 
 col1, col2 = st.columns(2)
@@ -443,7 +443,7 @@ with col1:
 
 #Tiempo promedio en llamada semanal--- ------------------------------------------------------------------------------------------------------------------
 
-st.title("Eficiencia de llamada semanal")
+st.title("Weekly Call Time Report")
 st.markdown("---")
 
 df_avaya = pd.read_excel("Avaya.xlsx")
