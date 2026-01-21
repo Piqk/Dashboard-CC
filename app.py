@@ -529,3 +529,6 @@ col1, = st.columns(1)
 with col1:
     st.subheader(f"Time report from {display_value}")
     st.dataframe(df_avaya)
+
+st.markdown("---")
+st.markdown("Created by Angel Nelson")
