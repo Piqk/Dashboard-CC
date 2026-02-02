@@ -4,7 +4,7 @@ A comprehensive Streamlit-based dashboard for call center performance tracking a
 
 ![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
 ![Streamlit](https://img.shields.io/badge/streamlit-1.0+-red.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
+
 
 ## 🎯 Features
 
