@@ -358,6 +358,7 @@ df5.loc[df5['Agente'] == 'KATIA', 'Agente'] = 'Katia'
 df5.loc[df5['Agente'] == 'NADINE', 'Agente'] = 'Nadine'
 df5.loc[df5['Agente'] == 'ROSARIO', 'Agente'] = 'Rosario'
 
+df4.isetitem(3, df4.iloc[:, 3].astype(object))
 for col_index in range(0, 9):
     valor = df4.iloc[col_index, 3]
     if pd.isna(valor):
@@ -367,7 +368,9 @@ for col_index in range(0, 9):
             df4.iloc[col_index, 3] = "{:.2%}".format(df4.iloc[col_index, 3])
         except (ValueError, TypeError):
             df4.iloc[col_index, 3] = "-"
+            pass
 
+df5.isetitem(3, df5.iloc[:, 3].astype(object))
 for col_index in range(0, 9):
     valor = df5.iloc[col_index, 3]
     if pd.isna(valor):
